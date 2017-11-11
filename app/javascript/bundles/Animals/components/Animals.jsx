@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import Animal from './Animal';
 
 export default class Animals extends React.Component {
   static propTypes = {
@@ -18,19 +19,10 @@ export default class Animals extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <section className="animals">
-        { this.props.animals.map((animal) => (
-          <figure className="animal">
-            <div className="background"
-                 style={{backgroundImage: `url('${animal.image}')`}}>
-            </div>
-            <figcaption style={{backgroundColor: animal.bg_color }}>
-              <h2>{animal.name}</h2>
-              <img src={animal.icon} alt={animal.name} className="animal-icon"/>
-            </figcaption>
-          </figure>
+        { this.props.animals.map(animal => (// this function takes an animal
+          <Animal key={animal.id} animal={animal}/> // returns
         ))}
       </section>
     );
