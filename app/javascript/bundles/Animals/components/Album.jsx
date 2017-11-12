@@ -15,12 +15,12 @@ export default class Albums extends React.Component {
 
     return (
       <section className={`album ${active ? 'active' : null}`}>
-        images.map(image => (
+        {images.map(image => (
           <img
             key={image.id}
-            src="{image.urls.regular}"
+            src={image.urls.regular}
             alt={image.description} />
-        ))
+        ))}
       </section>
     );
   }

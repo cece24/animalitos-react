@@ -22,7 +22,7 @@ export default class Animals extends React.Component {
     };
   }
 
-  loadImages = (animal) {
+  loadImages = (animal) => {
     const clientID = '5c8875b8bf08ca810bb9771c57a12ddaccad724418d0fbad2003ab234733108f';
     fetch(`https://api.unsplash.com/search/photos?client_id=${clientID}&query=${animal.name}`).
       then(response => response.json()).

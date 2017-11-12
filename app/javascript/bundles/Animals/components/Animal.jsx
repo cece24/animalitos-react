@@ -9,10 +9,13 @@ export default class Animal extends React.Component {
   };
 
   render() {
-    const animal = this.props.animal;
+    const {animal, loadImages} = this.props;
 
     return (
-      <figure className="animal" onClick={(e) => {player.play(animal.sound)}}>
+      <figure className="animal" onClick={(e) => {
+          player.play(animal.sound);
+          loadImages(animal);
+          }}>
         <div className="background"
              style={{backgroundImage: `url('${animal.image}')`}}>
         </div>
