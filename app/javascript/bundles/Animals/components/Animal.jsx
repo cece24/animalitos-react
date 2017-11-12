@@ -1,16 +1,18 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import player from '../Player';
 
 export default class Animal extends React.Component {
   static propTypes = {
     animal: PropTypes.object.isRequired, // this is passed from the Rails view
+    loadImages: PropTypes.func.isRequired
   };
 
   render() {
     const animal = this.props.animal;
 
     return (
-      <figure className="animal">
+      <figure className="animal" onClick={(e) => {player.play(animal.sound)}}>
         <div className="background"
              style={{backgroundImage: `url('${animal.image}')`}}>
         </div>
