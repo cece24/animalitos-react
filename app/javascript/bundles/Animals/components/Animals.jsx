@@ -22,6 +22,20 @@ export default class Animals extends React.Component {
     };
   }
 
+  // function for escaping the album
+  // React function that is run once after component is rendered
+  // good place to add event listeners
+  componentDidMount() {
+    document.body.addEventListener('keyup', (event) => {
+      if (event.keyCode === 27) {
+        this.setState({
+          images: [],
+          active: false
+        })
+      }
+    });
+  }
+
   loadImages = (animal) => {
     const clientID = '5c8875b8bf08ca810bb9771c57a12ddaccad724418d0fbad2003ab234733108f';
     fetch(`https://api.unsplash.com/search/photos?client_id=${clientID}&query=${animal.name}`).
